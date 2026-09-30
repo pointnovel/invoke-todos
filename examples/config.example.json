@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "_": "invoke-todos account config (docs/spec-config.md). Keys starting with _ are comments. Paths may start with ~. Everything omitted takes its default.",
+  "backend": "todoist",
+  "account": {
+    "name": "personal"
+  },
+  "todoist": {
+    "_": "where the API token comes from: env (TODOIST_API_TOKEN), keychain (macOS), file (mode 0600) or command (a program that prints it); the token itself never goes in this file",
+    "token": {
+      "source": "keychain",
+      "item": "TODOIST_API_TOKEN"
+    }
+  },
+  "defaults": {
+    "_": "the project the task verbs run under; --in PROJECT overrides it per run",
+    "project": "Tasks"
+  },
+  "projects": {
+    "_": "the projects that are task lists and the areas (sections, one lowercase word each) they are expected to have",
+    "Tasks": {
+      "role": "work",
+      "areas": [
+        "inbox",
+        "tools",
+        "writing"
+      ]
+    }
+  },
+  "attributes": {
+    "_": "the house vocabulary: labels for effort and mode, free kinds, what priority means",
+    "effort": {
+      "prefix": "effort-",
+      "values": [
+        "S",
+        "M",
+        "L"
+      ],
+      "meaning": {
+        "S": "under an hour",
+        "M": "a session",
+        "L": "several sessions"
+      }
+    },
+    "mode": {
+      "values": [
+        "unattended",
+        "assisted",
+        "owner"
+      ],
+      "meaning": {
+        "unattended": "an agent finishes it alone",
+        "assisted": "an agent starts it and needs you mid-way",
+        "owner": "only you can: pay, sign, call"
+      }
+    },
+    "kinds": {
+      "known": [
+        "decision",
+        "verify",
+        "build",
+        "write",
+        "parked"
+      ],
+      "create_missing": true
+    },
+    "priority": {
+      "meaning": "value"
+    }
+  },
+  "provenance": {
+    "_": "src and since ride in one task comment; a session id in src becomes an Origin link through url_template (a %s template), or no link when null",
+    "comment": true,
+    "origin_link": "Origin",
+    "src": {
+      "url_template": null
+    }
+  }
+}

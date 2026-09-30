@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "_": "the offline suite's account config: generic names; the mock's API base and token come from the environment",
+  "backend": "todoist",
+  "account": {"name": "test"},
+  "todoist": {"token": {"source": "env"}},
+  "defaults": {"project": "Work"},
+  "projects": {
+    "Work": {"role": "work", "areas": ["bills", "home", "tools"]},
+    "Personal": {"role": "life"}
+  },
+  "attributes": {
+    "mode": {"values": ["unattended", "assisted", "owner"]}
+  },
+  "provenance": {"src": {"url_template": "https://example.com/session?sid=%s"}}
+}

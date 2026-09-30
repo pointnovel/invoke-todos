@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "invoke-todos"
+description = "Task lists driven from the shell by people and agents alike; a core and one backend per task app, Todoist first."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/pointnovel/invoke-todos"
+
+[project.scripts]
+todos = "invoke_todos.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "invoke_todos.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["invoke_todos*"]
